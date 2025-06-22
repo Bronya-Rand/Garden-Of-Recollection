@@ -1,63 +1,67 @@
-// The main script for the extension
-// The following are examples of some basic extension functionality
+import { extension_settings } from "../../../extensions.js";
+import {
+	extensionName,
+	extensionFolderPath,
+	defaultSettings,
+} from "./constants.js";
+import { reminisceOld } from "./modules/random.js";
+import { prepareSlashCommands } from "./modules/slash-command.js";
+import {
+	setupRecollectionJQuery,
+	setupRecollectionHTML,
+} from "./modules/ui.js";
 
-//You'll likely need to import extension_settings, getContext, and loadExtensionSettings from extensions.js
-import { extension_settings, getContext, loadExtensionSettings } from "../../../extensions.js";
-
-//You'll likely need to import some other functions from the main script
-import { saveSettingsDebounced } from "../../../../script.js";
-
-// Keep track of where your extension is located, name should match repo name
-const extensionName = "st-extension-example";
-const extensionFolderPath = `scripts/extensions/third-party/${extensionName}`;
-const extensionSettings = extension_settings[extensionName];
-const defaultSettings = {};
-
-
- 
-// Loads the extension settings if they exist, otherwise initializes them to the defaults.
 async function loadSettings() {
-  //Create the settings if they don't exist
-  extension_settings[extensionName] = extension_settings[extensionName] || {};
-  if (Object.keys(extension_settings[extensionName]).length === 0) {
-    Object.assign(extension_settings[extensionName], defaultSettings);
-  }
+	extension_settings[extensionName] = extension_settings[extensionName] || {};
+	if (Object.keys(extension_settings[extensionName]).length === 0) {
+		Object.assign(extension_settings[extensionName], defaultSettings);
+	}
 
-  // Updating settings in the UI
-  $("#example_setting").prop("checked", extension_settings[extensionName].example_setting).trigger("input");
+	setupRecollectionHTML();
 }
 
-// This function is called when the extension settings are changed in the UI
-function onExampleInput(event) {
-  const value = Boolean($(event.target).prop("checked"));
-  extension_settings[extensionName].example_setting = value;
-  saveSettingsDebounced();
-}
-
-// This function is called when the button is clicked
-function onButtonClick() {
-  // You can do whatever you want here
-  // Let's make a popup appear with the checked setting
-  toastr.info(
-    `The checkbox is ${extension_settings[extensionName].example_setting ? "checked" : "not checked"}`,
-    "A popup appeared because you clicked the button!"
-  );
-}
-
-// This function is called when the extension is loaded
 jQuery(async () => {
-  // This is an example of loading HTML from a file
-  const settingsHtml = await $.get(`${extensionFolderPath}/example.html`);
+	const settingsHtml = await $.get(`${extensionFolderPath}/html/settings.html`);
+	$("#extensions_settings").append(settingsHtml);
 
-  // Append settingsHtml to extensions_settings
-  // extension_settings and extensions_settings2 are the left and right columns of the settings menu
-  // Left should be extensions that deal with system functions and right should be visual/UI related 
-  $("#extensions_settings").append(settingsHtml);
+	loadSettings();
 
-  // These are examples of listening for events
-  $("#my_button").on("click", onButtonClick);
-  $("#example_setting").on("input", onExampleInput);
+	setupRecollectionJQuery();
+	prepareSlashCommands();
 
-  // Load settings when starting things up (if you have any)
-  loadSettings();
+	setupWelcomeButton();
 });
+
+function setupWelcomeButton() {
+	const reminisceButton = `
+	<button class="bswan_reminisce menu_button menu_button_icon">
+		<i class="fa-solid fa-photo-film"></i>
+		<span data-i18n="Reminisce">Reminisce</span>
+	</button>
+	`;
+
+	// check if shortcuts button div exists
+	if ($("#chat .welcomeShortcuts").length > 0) {
+		$("#chat .welcomeShortcuts").prepend(reminisceButton);
+		$(".bswan_reminisce").on("click", async () => {
+			await reminisceOld();
+		});
+		return;
+	}
+
+	const observer = new MutationObserver((_, obs) => {
+		const welcomeShortcuts = $("#chat .welcomeShortcuts");
+		if (welcomeShortcuts.length > 0) {
+			welcomeShortcuts.prepend(reminisceButton);
+			$(".bswan_reminisce").on("click", async () => {
+				await reminisceOld();
+			});
+			obs.disconnect();
+		}
+	});
+
+	observer.observe(document.querySelector("#chat"), {
+		childList: true,
+		subtree: true,
+	});
+}

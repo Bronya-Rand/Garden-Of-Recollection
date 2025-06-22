@@ -1,0 +1,55 @@
+<div class="bswan-extension-settings">
+    <div class="inline-drawer">
+        <div class="inline-drawer-toggle inline-drawer-header">
+            <b>The Garden of Recollection</b>
+            <div class="inline-drawer-icon fa-solid fa-circle-chevron-down down"></div>
+        </div>
+        <div class="inline-drawer-content">
+            <div class="bswan-drawer-content">
+                <small class="flex-container justifyCenter">
+                    <span data-i18n="Brought to you by">Brought to you by </span>
+                    <a href="https://github.com/Bronya-Rand" data-i18n="Bronya Rand" target="_blank"
+                        rel="noopener noreferrer">Bronya Rand</a>
+                    <span data-i18n="and Black Swan."> and Black Swan.</span>
+                </small>
+                
+                <div class="bswan_block flex-container flexFlowColumn bswan_details_padding">
+                    <div class="bswan_block flex-container flexFlowColumn">
+                        <label for="bswan-recollection-mode" data-i18n="Recollection Mode">Recollection Mode</label>
+                        <small data-i18n="Select the recollection mode you wish to reminisce in.">Select the recollection mode you wish to reminisce in.</small>
+                        <select id="bswan-recollection-mode" class="bswan-select">
+                            <option value="0" data-i18n="None (Disabled)">None (Disabled)</option>
+                            <option value="1" data-i18n="Reminisce Characters">Reminisce Characters</option>
+                            <option value="2" data-i18n="Reminisce Group Chats">Reminisce Group Chats</option>
+                            <option value="3" data-i18n="Reminisce All">Reminisce All</option>
+                        </select>
+                    </div>
+
+                    <div class="bswan_block flex-container flexFlowColumn bswan_details_padding">
+                        <label for="bswan-recollection-randomness"  class="title_restorable">
+                            <span data-i18n="Recollection Preference">Recollection Preference</span>
+                            <div id="prome-sprite-scale-size-restore" title="Restore default value"
+                                class="right_menu_button">
+                                <i class="fa-solid fa-clock-rotate-left fa-sm"></i>
+                            </div>
+                        </label>
+                        <small data-i18n="Adjust the randomness of recollections. Lower values will prefer least used characters and/or group chats while higher values will fully randomize them.">
+                            Adjust the randomness of recollections. Lower values will prefer least used characters and/or group chats while higher values will fully randomize them.
+                        </small>
+                        <input class="neo-range-slider" id="bswan-recollection-randomness" type="range" min="0" max="1" step="0.01" value="0.5"/>
+                        <input class="neo-range-input" id="bswan-recollection-randomness-counter" type="number" min="0" max="1" step="0.01" value="0.5"/>
+                    </div>
+                </div>
+
+                <div class="bswan_block flex-container flexFlowColumn" style="gap: 1px; padding-bottom: 5px;">
+                    <small class="flex-container justifyCenter alignitemscenter">
+                        <span>The Garden of Recollection Version
+                            <a id="bswan-version-number"
+                                href="https://github.com/Bronya-Rand/BSwan-Recollection-Extension" target="_blank"
+                                rel="noopener noreferrer">1.0.0</a></span>
+                    </small>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,1 +1,14 @@
-/* All style elements for your extension go here */
+/* BSwan UI Settings */
+.bswan-drawer-content {
+	gap: 8px;
+	display: flex;
+	flex-direction: column;
+}
+
+.bswan_block {
+	width: 100%;
+}
+
+.bswan_details_padding {
+	padding: 5px 5px;
+}
