@@ -1,11 +1,11 @@
 {
     "display_name": "The Garden of Recollection",
-    "loading_order": 9,
+    "loading_order": 4,
     "requires": [],
     "optional": [],
     "js": "index.js",
     "css": "style.css",
     "author": "Bronya Rand",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "homePage": "https://github.com/Bronya-Rand/Garden-of-Recollection"
 }
