@@ -1,4 +1,4 @@
-import { extension_settings } from "../../../extensions.js";
+import { extension_settings, renderExtensionTemplateAsync } from "../../../extensions.js";
 import {
 	extensionName,
 	extensionFolderPath,
@@ -30,6 +30,15 @@ jQuery(async () => {
 	prepareSlashCommands();
 
 	setupWelcomeButton();
+
+	const wandButtonHtml = await renderExtensionTemplateAsync(
+		`third-party/${extensionName}/html`,
+		"wand_buttons",
+	);
+	$("#extensionsMenu").append(wandButtonHtml);
+	$("#bswan-wand-reminisce").on("click", async () => {
+		await reminisceOld();
+	});
 });
 
 function setupWelcomeButton() {
