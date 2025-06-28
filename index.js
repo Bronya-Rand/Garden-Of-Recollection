@@ -34,10 +34,10 @@ jQuery(async () => {
 
 function setupWelcomeButton() {
 	const reminisceButton = `
-	<button class="bswan_reminisce menu_button menu_button_icon">
+	<a class="bswan_reminisce menu_button menu_button_icon">
 		<i class="fa-solid fa-photo-film"></i>
 		<span data-i18n="Reminisce">Reminisce</span>
-	</button>
+	</a>
 	`;
 
 	// check if shortcuts button div exists
