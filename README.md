@@ -14,6 +14,16 @@ The Garden of Recollection is an extension for SillyTavern that allows users to 
 
 ## Usage
 
+### Welcome Menu/Wand Menu
+When opening SillyTavern on your PC or phone, you will find the following button in the Welcome Menu:
+
+`Reminisce` - This button will open the Garden of Recollection and allow you to select a reminisce setting of your choosing.
+
+> [!TIP]
+> After a chat has been selected, if you wish to reminisce with another character or group chat, you can click the `Reminisce` button again in the Wand Menu.
+
+### Slash Commands
+
 `/reminisce` -  This command will select a random character or group chat based on the reminisce settings you have set.
 
 `/reminisce-new` - This command will create a new random chat with a character based on the reminisce settings you have set.
