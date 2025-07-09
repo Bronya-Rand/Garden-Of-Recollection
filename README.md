@@ -14,13 +14,32 @@ The Garden of Recollection is an extension for SillyTavern that allows users to 
 
 ## Usage
 
-### Welcome Menu/Wand Menu
-When opening SillyTavern on your PC or phone, you will find the following button in the Welcome Menu:
+### Welcome Menu
+When opening SillyTavern on your PC or phone, you will find the following *Reminisce* button in the Welcome Menu:
 
-`Reminisce` - This button will open the Garden of Recollection and allow you to select a reminisce setting of your choosing.
+| Desktop | Mobile |
+| :-----: | :----: |
+| ![Desktop](./.github/Desktop-WelcomeButton.png) | ![Mobile](./.github/Mobile-WelcomeButton.png)
 
-> [!TIP]
-> After a chat has been selected, if you wish to reminisce with another character or group chat, you can click the `Reminisce` button again in the Wand Menu.
+> [!NOTE]
+> If you are using a heavily altered theme i.e. Moonlit Echoes or a custom [Guinevere UI Extension](https://github.com/Bronya-Rand/Guinevere-UI-Extension) theme, the *Reminisce* button on the welcome screen may be absent or moved to another location.
+
+### Character Menu
+When on the Character Management tab, you will find find the following *Reminisce* icon button below:
+
+| Desktop | Mobile |
+| :-----: | :----: |
+| ![Desktop](./.github/Desktop-CharButton.png) | ![Mobile](./.github/Mobile-CharButton.png) |
+
+> [!NOTE]
+> If you are using a heavily altered theme i.e. Moonlit Echoes or a custom [Guinevere UI Extension](https://github.com/Bronya-Rand/Guinevere-UI-Extension) theme, the *Reminisce* button on the welcome screen may be absent or moved to another location.
+
+### Wand Menu
+When clicking on the Wand Button, you will find the following *Reminisce* button below:
+
+<center>
+    <img src="./.github/WandButton.png"/>
+</center>
 
 ### Slash Commands
 
